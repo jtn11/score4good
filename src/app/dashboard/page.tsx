@@ -282,8 +282,14 @@ export default function DashboardPage() {
                       Run a high-fidelity Monte Carlo simulation to forecast your probability based on current entry distributions.
                     </p>
                   </div>
-                  <button onClick={simulateDraw} style={{ width:80, height:80, borderRadius:"50%", background:"white", color:"var(--color-primary)", border:"none", cursor:"pointer", display:"flex", alignItems:"center", justifyContent:"center", boxShadow:"0 8px 32px rgba(0,0,0,0.2)", flexShrink:0 }}>
-                    <span className="material-symbols-outlined" style={{ fontSize:32 }}>play_arrow</span>
+                  <button 
+                    onClick={simulateDraw} 
+                    style={{ padding: "16px 32px", borderRadius: 9999, background: "white", color: "var(--color-primary)", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 12, boxShadow: "0 8px 32px rgba(0,0,0,0.2)", flexShrink: 0, fontFamily: "var(--font-sans)", fontWeight: 600, fontSize: 16, transition: "all 0.2s ease", animation: "glow 2s infinite" }}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.animation = "none"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(255,255,255,0.4)"; e.currentTarget.style.background = "#f8fafc"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.animation = "glow 2s infinite"; e.currentTarget.style.background = "white"; }}
+                  >
+                    <span className="material-symbols-outlined" style={{ fontSize: 24 }}>play_circle</span>
+                    Run Simulation
                   </button>
                 </div>
                 {drawResult && (
@@ -340,6 +346,11 @@ export default function DashboardPage() {
           input[type="date"]:focus, input[type="number"]:focus {
             outline: 2px solid var(--color-primary);
             outline-offset: 2px;
+          }
+          @keyframes glow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
           }
         `}</style>
       </div>
