@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Score4Good — Play. Win. Do Good.
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Score4Good is a modern web application that combines performance tracking, reward-based draws, and charitable contributions.
+
+Users can:
+- Enter their latest performance scores
+- Participate in simulated draw events
+- Select a charity to support
+
+This project was built as a functional MVP based on a provided PRD, focusing on correct system logic, usability, and clean design within a limited timeframe.
+
+---
+
+## 🚀 Tech Stack
+
+- **Framework:** Next.js (React + TypeScript)
+- **Styling:** Tailwind CSS (v4)
+- **Database & Auth:** Firebase (Authentication + Firestore)
+- **Deployment:** Vercel
+
+---
+
+## ✨ Features
+
+### 👤 Authentication
+- Secure user signup and login
+- Role-based routing (User → Dashboard, Admin → Admin Panel)
+- Route protection for both user and admin views
+
+---
+
+### ⛳ Score Management
+- Add, edit, and delete performance scores
+- Maximum of 5 scores per user
+- Automatic replacement of the oldest score when limit is exceeded
+- Duplicate date prevention
+- Scores displayed in reverse chronological order
+
+---
+
+### 🎲 Draw System
+- Simulated monthly draw
+- Random number generation
+- Matching logic against user scores
+- Result feedback showing number of matches
+
+---
+
+###  Charity Selection
+- Users can select a preferred charity
+- Selection is persisted per user
+- Reflects contribution intent within the platform
+
+---
+
+### 📊 User Dashboard
+- Subscription status (simulated)
+- Score history and management
+- Draw simulation interaction
+- Charity selection interface
+
+---
+
+### 🛠️ Admin Panel
+- View all registered users
+- Inspect user scores and selected charities
+- Run a global draw simulation across all users
+- View draw results and matched users
+
+---
+
+### ⚡ UX Enhancements
+- Toast notifications for actions
+- Input validation and error handling
+- Loading states and disabled interactions
+- Clean, responsive UI
+
+---
+
+## 🧠 Key Design Decisions
+
+- Implemented a rolling 5-score system with automatic replacement of the oldest score
+- Used manual draw simulation instead of scheduled jobs to demonstrate core functionality
+- Simplified subscription system as a mocked state to focus on core features
+- Prioritized usability and clarity over unnecessary backend complexity
+
+---
+
+## ⚠️ Limitations (MVP Scope)
+
+- Subscription and payment system is simulated
+- Draw system is manually triggered instead of automated monthly execution
+- Charity contributions are conceptual and not processed as real transactions
+
+---
+
+## 🌐 Live Demo
+
+- Website: https://your-app.vercel.app
+- Dashboard: https://your-app.vercel.app/dashboard
+- Admin Panel: https://your-app.vercel.app/admin
+
+---
+
+## 🔑 Test Credentials
+
+### User
+Email: testpass@gmail.com  
+Password: testpass
+
+### Admin
+Email: admin@score4good.com  
+Password: testpass
+
+---
+
+## 🛠️ Getting Started
+
+Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📌 Note
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project was built as part of a time-constrained assignment based on a provided PRD, focusing on delivering a working MVP with correct system logic and a polished user experience.
