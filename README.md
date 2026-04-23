@@ -98,9 +98,9 @@ This project was built as a functional MVP based on a provided PRD, focusing on 
 
 ## 🌐 Live Demo
 
-- Website: https://your-app.vercel.app
-- Dashboard: https://your-app.vercel.app/dashboard
-- Admin Panel: https://your-app.vercel.app/admin
+- Website: https://score4good.vercel.app/
+- Dashboard: https://score4good.vercel.app/dashboard
+- Admin Panel: https://score4good.vercel.app/admin
 
 ---
 
