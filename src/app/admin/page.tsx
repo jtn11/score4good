@@ -136,8 +136,8 @@ export default function AdminPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, marginBottom: 48 }} className="stats-grid">
             {[
               { icon: "group", label: "Total Users", value: users.length.toLocaleString(), badge: "+12%", badgeColor: "#10b981" },
-              { icon: "payments", label: "Current Pool", value: "$450,000", badge: "Stable", badgeColor: "#94a3b8" },
-              { icon: "favorite", label: "Impact Score", value: "8.4M", badge: "8 Charities", badgeColor: "var(--color-on-primary-container)" },
+              { icon: "payments", label: "Prize Pool", value: `$${(users.length * 100).toLocaleString()}`, badge: "Stable", badgeColor: "#94a3b8" },
+              { icon: "favorite", label: "Total Contributions", value: `$${(users.length * 12).toLocaleString()}`, badge: "8 Charities", badgeColor: "var(--color-on-primary-container)" },
               { icon: "schedule", label: "Total Scores", value: totalScores.toString(), badge: "Active", badgeColor: "#10b981" },
             ].map((stat) => (
               <div key={stat.label} style={{ background: "white", padding: 24, borderRadius: 16, boxShadow: "0 20px 40px rgba(46,59,91,0.03)", display: "flex", flexDirection: "column", justifyContent: "space-between", height: 160 }}>
