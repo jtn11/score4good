@@ -37,5 +37,10 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
     return null;
   }
 
+  if (pathname === "/dashboard" && isAdmin) {
+    router.push("/admin");
+    return null;
+  }
+
   return <>{children}</>;
 }

@@ -1,22 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 import { Toaster } from "react-hot-toast";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Score4Good",
-  description: "Track Performance. Win Rewards. Support Charity.",
+  title: "Score4Good – Track Performance. Win Rewards. Support Charity.",
+  description: "Track your performance, win rewards, and support a charity of your choice with Score4Good.",
 };
 
 export default function RootLayout({
@@ -26,11 +15,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-gray-50 text-gray-900`}
-      >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased min-h-screen" style={{ backgroundColor: "var(--color-background)", color: "var(--color-on-surface)", fontFamily: "var(--font-sans)" }}>
         <AuthProvider>
-          <Toaster position="top-right" />
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              style: {
+                fontFamily: "var(--font-sans)",
+                fontSize: "14px",
+                borderRadius: "12px",
+                border: "1px solid var(--color-outline-variant)",
+                boxShadow: "0 20px 40px rgba(46,59,91,0.08)",
+              },
+            }}
+          />
           {children}
         </AuthProvider>
       </body>

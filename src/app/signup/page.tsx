@@ -21,7 +21,11 @@ export default function SignupPage() {
 
       await createUserWithEmailAndPassword(auth, email, password);
       toast.success("Account created successfully!");
-      router.push("/dashboard");
+      if (email.toLowerCase() === "admin@score4good.com") {
+        router.push("/admin");
+      } else {
+        router.push("/dashboard");
+      }
     } catch (error: any) {
       toast.error(error.message || "Failed to create account");
     } finally {

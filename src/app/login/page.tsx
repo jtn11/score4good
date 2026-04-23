@@ -20,7 +20,11 @@ export default function LoginPage() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       toast.success("Welcome back!");
-      router.push("/dashboard");
+      if (email.toLowerCase() === "admin@score4good.com") {
+        router.push("/admin");
+      } else {
+        router.push("/dashboard");
+      }
     } catch (error: any) {
       toast.error(error.message || "Invalid credentials");
     } finally {
