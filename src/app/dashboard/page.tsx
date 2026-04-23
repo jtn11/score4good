@@ -184,7 +184,7 @@ export default function DashboardPage() {
                   Manage your draw entries and select your preferred philanthropic impact for this month&apos;s pool.
                 </p>
               </div>
-              <div style={{ display:"flex", gap:16 }}>
+              <div className="status-cards-container">
                 <div style={{ background:"var(--color-surface-container-low)", padding:"12px 24px", borderRadius:12, boxShadow:"0 4px 16px rgba(46,59,91,0.04)", minWidth: 160 }}>
                   <p style={{ fontFamily:"var(--font-sans)", fontSize:11, fontWeight:600, letterSpacing:"0.05em", textTransform:"uppercase", color:"var(--color-on-surface-variant)", margin:"0 0 6px" }}>Subscription Status</p>
                   <p style={{ fontFamily:"var(--font-serif)", fontSize:22, fontWeight:600, color:"var(--color-primary)", margin:0, display:"flex", alignItems:"center", gap:8 }}>
@@ -210,7 +210,7 @@ export default function DashboardPage() {
               </div>
 
               <form onSubmit={handleAddOrEditScore}>
-                <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16, marginBottom:24 }}>
+                <div className="form-grid" style={{ gap:16, marginBottom:24 }}>
                   <div>
                     <label style={{ display:"block", fontFamily:"var(--font-sans)", fontSize:11, fontWeight:600, letterSpacing:"0.05em", textTransform:"uppercase", color:"var(--color-on-surface-variant)", marginBottom:8, paddingLeft:4 }}>Draw Date</label>
                     <input type="date" required value={inputDate} onChange={(e) => setInputDate(e.target.value)}
@@ -313,7 +313,7 @@ export default function DashboardPage() {
                   <h2 style={{ fontFamily:"var(--font-serif)", fontSize:24, fontWeight:600, color:"var(--color-primary)", margin:0 }}>Support a Charity</h2>
                   <span style={{ fontFamily:"var(--font-sans)", fontSize:11, fontWeight:600, letterSpacing:"0.05em", textTransform:"uppercase", color:"var(--color-on-surface-variant)" }}>Impact Factor: 2.5x</span>
                 </div>
-                <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:16 }}>
+                <div className="charity-grid" style={{ gap:16 }}>
                   {CHARITIES.map((charity) => {
                     const isSelected = selectedCharity === charity.name;
                     return (
@@ -340,8 +340,19 @@ export default function DashboardPage() {
         </main>
 
         <style>{`
+          .form-grid { display: grid; grid-template-columns: 1fr 1fr; }
+          .charity-grid { display: grid; grid-template-columns: 1fr 1fr; }
+          .status-cards-container { display: flex; gap: 16px; flex-wrap: wrap; }
+
           @media (max-width: 768px) {
             .bento-grid { display: flex !important; flex-direction: column !important; }
+            .form-grid { grid-template-columns: 1fr !important; }
+            .charity-grid { grid-template-columns: 1fr !important; }
+            .status-cards-container > div { flex: 1; min-width: 100% !important; }
+            
+            header { padding: 0 24px !important; }
+            main { padding-left: 16px !important; padding-right: 16px !important; }
+            h1 { fontSize: 32px !important; }
           }
           input[type="date"]:focus, input[type="number"]:focus {
             outline: 2px solid var(--color-primary);
